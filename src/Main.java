@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println("Task 5");
         fullName = "ivanov ivan ivanovich";
-        System.out.println(rightName(fullName));
+        System.out.println(correctName(fullName));
 
         System.out.println("Task 6");
         String first = "135";
@@ -33,8 +33,8 @@ public class Main {
         System.out.println("Данные строки — " + mergeStrings(first, second));
 
         System.out.println("Task 7");
-        String str = "aabccddefgghiijjkk";
-        System.out.println("Чистая строка без дубликатов - " + cleanString(str));
+        String str = "aabccddefgghiijjjkk";
+        System.out.println("Повторяющиеся числа - " + showDublicate(str));
 
     }
 
@@ -46,7 +46,7 @@ public class Main {
         return new String[] {firstName, middleName, lastName};
     }
 
-    private static String rightName(String fullName) {
+    private static String correctName(String fullName) {
         return fullName.toUpperCase().charAt(0) +
                 fullName.substring(1, (fullName.indexOf(" ") + 1)) +
                 fullName.toUpperCase().charAt((fullName.indexOf(" ") + 1)) +
@@ -70,15 +70,15 @@ public class Main {
         return answer.toString();
     }
 
-    private static String cleanString(String str) {
+    private static String showDublicate(String str) {
         char[] charArray = str.toCharArray();
         StringBuilder answer = new StringBuilder();
 
         Arrays.sort(charArray);
-        answer.append(charArray[0]);
+        //answer.append(charArray[1]);
 
         for (int i = 1; i < charArray.length; i++) {
-            if (charArray[i] != charArray[i - 1]) {
+            if (charArray[i] == charArray[i - 1] && answer.indexOf(Character.toString(charArray[i])) == -1) {
                 answer.append(charArray[i]);
             }
         }
